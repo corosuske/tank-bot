@@ -14,14 +14,21 @@ GPIO.output(8, GPIO.LOW)
 GPIO.output(10, GPIO.LOW)
 
 while True:
+	#reverse
         GPIO.output(3, GPIO.HIGH)
 	GPIO.output(5, GPIO.LOW)
-        GPIO.output(8, GPIO.HIGH)
-        GPIO.output(10, GPIO.LOW)
-	sleep(3);
-        GPIO.output(3, GPIO.LOW)
-	GPIO.output(5, GPIO.HIGH)
         GPIO.output(8, GPIO.LOW)
         GPIO.output(10, GPIO.HIGH)
+	sleep(3);
+	#forward
+        GPIO.output(3, GPIO.LOW)
+	GPIO.output(5, GPIO.HIGH)
+        GPIO.output(8, GPIO.HIGH)
+        GPIO.output(10, GPIO.LOW)
 	sleep(3)
+        GPIO.output(3, GPIO.HIGH)
+        GPIO.output(5, GPIO.HIGH)
+        GPIO.output(8, GPIO.HIGH)
+        GPIO.output(10, GPIO.HIGH)
+        sleep(3)
 
