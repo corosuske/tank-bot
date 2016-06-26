@@ -1,0 +1,7 @@
+On the PI 
+raspivid -n -t 0 -w 1280 -h 720 -hf -ih -fps 20 -o - | nc -k -l 2222 &
+
+
+on the client 
+
+mplayer -fps 200 -demuxer h264es ffmpeg://tcp://192.168.1.20:2222
