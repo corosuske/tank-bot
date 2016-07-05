@@ -31,7 +31,7 @@ stdscr = curses.initscr()
 curses.cbreak()
 stdscr.keypad(1)
 f = open("/tmp/pythonlog","w")
-stdscr.addstr(0,10,"Hit 'q' to quit")
+stdscr.addstr(0,10,"Hit 'z' to quit")
 stdscr.refresh()
 
 key = ''
@@ -71,8 +71,25 @@ try:
           GPIO.output(37, GPIO.HIGH)
           GPIO.output(36, GPIO.HIGH)
           GPIO.output(38, GPIO.HIGH)
+      elif key == ord('['):
+          stdscr.addstr(3, 20, "[")
+          GPIO.output(35, GPIO.HIGH)
+          GPIO.output(37, GPIO.LOW)
+          GPIO.output(36, GPIO.HIGH)
+          GPIO.output(38, GPIO.LOW)
+      elif key == ord(']'):
+          stdscr.addstr(3, 20, "]")
+          GPIO.output(35, GPIO.LOW)
+          GPIO.output(37, GPIO.HIGH)
+          GPIO.output(36, GPIO.LOW)
+          GPIO.output(38, GPIO.HIGH)
+
+
+
       elif key == curses.KEY_HOME:
           stdscr.addstr(3, 20, "home")
+      elif key == ord('a'):
+          ser.write('a')
       elif key == ord('q'):
           stdscr.addstr(3, 20, "q")
           ser.write('q')
@@ -81,8 +98,31 @@ try:
           ser.write('w')
       elif key == ord('e'):
           stdscr.addstr(3, 20, "e")
-          print ("f")
           ser.write('e')
+      elif key == ord('d'):
+          ser.write('d')
+          stdscr.addstr(3, 20, "d")
+      elif key == ord('m'):
+          stdscr.addstr(3, 20, "m")
+          ser.write('m')
+      elif key == ord('n'):
+          stdscr.addstr(3, 20, "n")
+          ser.write('n')
+## scripts
+      elif key == ord('j'):
+          stdscr.addstr(3, 20, "waving")
+          ser.write('n')
+          sleep(0.4)
+          ser.write('m')
+          sleep(0.4)
+          ser.write('n')
+          sleep(0.4)
+          ser.write('m')
+
+
+
+
+
   GPIO.output(35, GPIO.HIGH)
   GPIO.output(37, GPIO.HIGH)
   GPIO.output(36, GPIO.HIGH)
@@ -90,4 +130,5 @@ try:
 finally:
 
   curses.endwin()
+
 
